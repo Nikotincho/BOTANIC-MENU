@@ -14,9 +14,44 @@
       width: 100%;
       height: auto;
     }
+    #topButton {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #000;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    #topButton:hover {
+      background-color: #fff;
+    }
   </style>
 </head>
 <body>
   <img src="Botanic_menu-01.jpg" alt="Cocktail Menu">
+
+  <button id="topButton" onclick="scrollToTop()">↑ Top</button>
+
+  <script>
+    const topButton = document.getElementById("topButton");
+
+    window.onscroll = () => {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        topButton.style.display = "block";
+      } else {
+        topButton.style.display = "none";
+      }
+    };
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>
